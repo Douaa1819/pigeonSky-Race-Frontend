@@ -12,9 +12,6 @@ on:
 jobs:
   build-angular:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: pigeon-sky-race-frontend 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

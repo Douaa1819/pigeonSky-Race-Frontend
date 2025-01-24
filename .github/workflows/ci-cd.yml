@@ -1,4 +1,4 @@
-name: CI CD
+name: CI CD 
 
 on:
   push:
@@ -6,36 +6,30 @@ on:
   pull_request:
     branches: [ "master" ]
 
-  workflow_dispatch:
-
 jobs:
   build-angular:
     runs-on: ubuntu-latest
     steps:
-      
       - name: Checkout repository
         uses: actions/checkout@v4
 
-  
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-
-      - name: Install  angular dependencies
+      - name: Install dependencies
         run: npm install
-        working-directory: ./frontend/pigeonSky-Race-Frontend  
+        working-directory: ./frontend
 
       - name: Run unit tests
         run: npm test
-        working-directory: ./frontend/pigeonSky-Race-Frontend 
-
+        working-directory: ./frontend
 
       - name: Build Angular app
         run: npm run build -- --configuration production
-        working-directory: ./frontend/pigeonSky-Race-Frontend  
+        working-directory: ./frontend
 
       - name: Run E2E tests
         run: npx cypress run
-        working-directory: ./frontend/pigeonSky-Race-Frontend 
+        working-directory: ./frontend

@@ -1,0 +1,24 @@
+
+
+<form (ngSubmit)="createPigeon()">
+  <label for="name">Nom :</label>
+  <input id="name" [(ngModel)]="newPigeon.numberBague" name="name" required />
+
+  <label for="gender">Genre :</label>
+  <input id="gender" [(ngModel)]="newPigeon.gender" name="gender" required />
+
+  <label for="age">Age :</label>
+  <input id="age" [(ngModel)]="newPigeon.age" name="age" required />
+
+  <label for="color">Couleur :</label>
+  <input id="color" [(ngModel)]="newPigeon.color" name="color" required />
+
+  <button type="submit">Créer</button>
+</form>
+
+<h3>Liste des pigeons</h3>
+<ul>
+  <li *ngFor="let pigeon of pigeons">
+    {{ pigeon.numberBague }} ({{ pigeon.gender }}) - {{ pigeon.color }} -{{pigeon.age }}
+  </li>
+</ul>

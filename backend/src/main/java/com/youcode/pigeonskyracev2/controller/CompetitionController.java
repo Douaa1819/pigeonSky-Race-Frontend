@@ -4,7 +4,6 @@ import com.youcode.pigeonskyracev2.dto.competition.CompetitionRequestDTO;
 import com.youcode.pigeonskyracev2.dto.competition.CompetitionResponseDTO;
 import com.youcode.pigeonskyracev2.service.CompetitionService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,0 +1,40 @@
+package com.youcode.pigeonskyracev2.entity;
+
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDateTime;
+import java.util.*;
+
+
+@Builder
+
+@Setter
+@Getter
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "competitions")
+public class Competition {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    private LocalDateTime startTime;
+
+    private LocalDateTime endTime;
+
+    private double latitudeGPS;
+
+    private int pigeonCount;
+
+
+
+    @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Pigeon> pigeons = new ArrayList<>();
+
+    private double longitudeGPS;
+}
